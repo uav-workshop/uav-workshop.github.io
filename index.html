@@ -93,7 +93,23 @@
       word-break: break-word;
     }
 
+    /* Nine-speaker layout: balanced 3 x 3 grid on desktop. */
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .speaker-card {
+      min-width: 0;
+      height: 100%;
+    }
+
     @media (max-width: 900px) {
+      .speaker-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .funding-content {
         flex-direction: column;
         align-items: flex-start;
@@ -114,6 +130,10 @@
     }
 
     @media (max-width: 640px) {
+      .speaker-grid {
+        grid-template-columns: 1fr;
+      }
+
       .qr-code-wrap img {
         width: min(210px, 72vw);
       }
@@ -236,14 +256,19 @@
         <div class="section-heading">
           <p class="eyebrow">Knowledge Exchange</p>
           <h2>Invited Speakers</h2>
-          <p>Invited experts from leading Indian Institutes of Technology.</p>
+          <p>Invited experts from leading IITs and TiHAN, IIT Hyderabad.</p>
         </div>
-        <div class="speaker-grid speaker-grid-five">
+        <div class="speaker-grid">
           <article class="speaker-card"><div class="speaker-avatar">PKD</div><h3>Prof. Pradip Kumar Das</h3><p>IIT Guwahati, India</p></article>
           <article class="speaker-card"><div class="speaker-avatar">SC</div><h3>Prof. Sandip Chakrabarty</h3><p>IIT Kharagpur, India</p></article>
+          <article class="speaker-card"><div class="speaker-avatar">MP</div><h3>Dr. Moumita Patra</h3><p>IIT Guwahati, India</p></article>
           <article class="speaker-card"><div class="speaker-avatar">AR</div><h3>Dr. Arijit Roy</h3><p>IIT Patna, India</p></article>
           <article class="speaker-card"><div class="speaker-avatar">AD</div><h3>Dr. Abhijit Das</h3><p>IIT Hyderabad, India</p></article>
-          <article class="speaker-card"><div class="speaker-avatar">+</div><h3>Many more</h3><p>Additional speakers to be announced</p></article>
+          <article class="speaker-card"><div class="speaker-avatar">SN</div><h3>Dr. Syam Narayanan</h3><p>TiHAN, IIT Hyderabad, India</p></article>
+          <article class="speaker-card"><div class="speaker-avatar">PS</div><h3>Dr. Pranay Saha</h3><p>IIT (ISM) Dhanbad, India</p></article>
+          <article class="speaker-card"><div class="speaker-avatar">NT</div><h3>Dr. Nikhil Tripathi</h3><p>IIT (ISM) Dhanbad, India</p></article>
+          <article class="speaker-card"><div class="speaker-avatar">AM</div><h3>Dr. Ayan Mondal</h3><p>IIT Indore, India</p></article>
+          <article class="speaker-card"><div class="speaker-avatar">AC</div><h3>Dr. Ayon Chakraborty</h3><p>IIT Madras, India</p></article>
         </div>
       </div>
     </section>
