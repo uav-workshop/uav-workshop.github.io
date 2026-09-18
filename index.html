@@ -209,6 +209,13 @@
         height: 128px;
       }
     }
+
+    /* With 11 speakers on a 5-column desktop grid, center Ashish in row 3. */
+    @media (min-width: 1151px) {
+      #speakers .speaker-card.ashish-card {
+        grid-column: 3;
+      }
+    }
   </style>
 </head>
 <body>
@@ -425,8 +432,12 @@
               <img class="speaker-photo" src="speaker/Ayon.jpg" alt="Dr. Ayon Chakraborty" loading="lazy"
                    onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
               <div class="speaker-fallback">AC</div>
-    
-          <article class="speaker-card">
+            </div>
+            <h3>Dr. Ayon Chakraborty</h3>
+            <p>IIT Madras, India</p>
+          </article>
+
+          <article class="speaker-card ashish-card">
             <div class="speaker-photo-wrap">
               <img class="speaker-photo" src="speaker/Ashish_Tiwari.jpeg" alt="Dr. Ashish Tiwari" loading="lazy"
                    onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
@@ -434,10 +445,6 @@
             </div>
             <h3>Dr. Ashish Tiwari</h3>
             <p>Dolby Laboratories</p>
-          </article>
-        </div>
-            <h3>Dr. Ayon Chakraborty</h3>
-            <p>IIT Madras, India</p>
           </article>
         </div>
       </div>
