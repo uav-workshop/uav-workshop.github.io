@@ -241,6 +241,152 @@
       transform: translateY(-1px);
       box-shadow: 0 5px 14px rgba(12, 145, 197, 0.16);
     }
+
+    /* Organizing team: use the previously empty right side for portraits. */
+    .organizing-card {
+      grid-column: 1 / -1;
+    }
+
+    .organizer-layout {
+      display: grid;
+      grid-template-columns: minmax(330px, 0.9fr) minmax(520px, 1.6fr);
+      gap: clamp(32px, 4vw, 70px);
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .organizer-details {
+      min-width: 0;
+    }
+
+    .organizer-details h3 {
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+
+    .organizer-details h3:first-child {
+      margin-top: 0;
+    }
+
+    .organizer-details p {
+      margin-bottom: 18px;
+      line-height: 1.55;
+    }
+
+    .organizer-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .organizer-person {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px 14px 18px;
+      border: 1px solid #d6eaf3;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fcfe 100%);
+      box-shadow: 0 6px 18px rgba(23, 50, 77, 0.07);
+      min-width: 0;
+    }
+
+    .organizer-photo {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border: 4px solid #e4f3fa;
+      background: #eef7fb;
+      box-shadow: 0 7px 20px rgba(23, 50, 77, 0.12);
+      margin-bottom: 14px;
+    }
+
+    .organizer-photo-fallback {
+      display: none;
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      place-items: center;
+      margin-bottom: 14px;
+      border: 4px solid #e4f3fa;
+      background: linear-gradient(135deg, #e8f7fb, #dbeef8);
+      color: #0c91c5;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .organizer-person h4 {
+      margin: 0 0 5px;
+      color: #17324d;
+      font-size: 1.02rem;
+      line-height: 1.25;
+    }
+
+    .organizer-role {
+      margin: 0 0 7px;
+      color: #0c91c5;
+      font-weight: 800;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.45px;
+    }
+
+    .organizer-affiliation {
+      margin: 0 0 7px;
+      color: #5c748a;
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+
+    .organizer-person a {
+      font-size: 0.83rem;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 1050px) {
+      .organizer-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .organizer-gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .organizer-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .organizer-person {
+        display: grid;
+        grid-template-columns: 105px 1fr;
+        grid-template-rows: auto auto auto auto;
+        column-gap: 16px;
+        text-align: left;
+        align-items: center;
+      }
+
+      .organizer-photo,
+      .organizer-photo-fallback {
+        width: 105px;
+        height: 105px;
+        grid-row: 1 / 5;
+        margin: 0;
+      }
+
+      .organizer-person h4,
+      .organizer-role,
+      .organizer-affiliation,
+      .organizer-person a {
+        justify-self: start;
+      }
+    }
   </style>
 </head>
 <body>
@@ -528,10 +674,60 @@
       <div class="container organization-grid">
         <article class="content-card compact accent-blue organizing-card">
           <div class="section-label">Organizing Team</div>
-          <h3>Convenor</h3>
-          <p><strong>Dr. Tamoghna Ojha</strong><br />Department of Mathematics &amp; Computing<br />IIT (ISM) Dhanbad<br /><a href="mailto:tamoghnaojha@iitism.ac.in">tamoghnaojha@iitism.ac.in</a></p>
-          <h3>Co-Convenors</h3>
-          <p><strong>Dr. Alakesh Kalita</strong><br /><strong>Dr. Sudhakar Kumawat</strong><br />Department of Mathematics &amp; Computing<br /><a href="mailto:alakesh@iitism.ac.in">alakesh@iitism.ac.in</a><br /><a href="mailto:sudhakar@iitism.ac.in">sudhakar@iitism.ac.in</a><br />IIT (ISM) Dhanbad</p>
+
+          <div class="organizer-layout">
+            <div class="organizer-details">
+              <h3>Convenor</h3>
+              <p>
+                <strong>Dr. Tamoghna Ojha</strong><br />
+                Department of Mathematics &amp; Computing<br />
+                IIT (ISM) Dhanbad<br />
+                <a href="mailto:tamoghnaojha@iitism.ac.in">tamoghnaojha@iitism.ac.in</a>
+              </p>
+
+              <h3>Co-Convenors</h3>
+              <p>
+                <strong>Dr. Alakesh Kalita</strong><br />
+                <strong>Dr. Sudhakar Kumawat</strong><br />
+                Department of Mathematics &amp; Computing<br />
+                <a href="mailto:alakesh@iitism.ac.in">alakesh@iitism.ac.in</a><br />
+                <a href="mailto:sudhakar@iitism.ac.in">sudhakar@iitism.ac.in</a><br />
+                IIT (ISM) Dhanbad
+              </p>
+            </div>
+
+            <div class="organizer-gallery" aria-label="Workshop organizing team">
+              <article class="organizer-person">
+                <img class="organizer-photo" src="speaker/Tamoghna.jpg" alt="Dr. Tamoghna Ojha"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+                <div class="organizer-photo-fallback">TO</div>
+                <h4>Dr. Tamoghna Ojha</h4>
+                <p class="organizer-role">Convenor</p>
+                <p class="organizer-affiliation">Department of Mathematics &amp; Computing<br />IIT (ISM) Dhanbad</p>
+                <a href="mailto:tamoghnaojha@iitism.ac.in">tamoghnaojha@iitism.ac.in</a>
+              </article>
+
+              <article class="organizer-person">
+                <img class="organizer-photo" src="speaker/alakesh.jpg" alt="Dr. Alakesh Kalita"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+                <div class="organizer-photo-fallback">AK</div>
+                <h4>Dr. Alakesh Kalita</h4>
+                <p class="organizer-role">Co-Convenor</p>
+                <p class="organizer-affiliation">Department of Mathematics &amp; Computing<br />IIT (ISM) Dhanbad</p>
+                <a href="mailto:alakesh@iitism.ac.in">alakesh@iitism.ac.in</a>
+              </article>
+
+              <article class="organizer-person">
+                <img class="organizer-photo" src="speaker/Sudhakar.jpg" alt="Dr. Sudhakar Kumawat"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+                <div class="organizer-photo-fallback">SK</div>
+                <h4>Dr. Sudhakar Kumawat</h4>
+                <p class="organizer-role">Co-Convenor</p>
+                <p class="organizer-affiliation">Department of Mathematics &amp; Computing<br />IIT (ISM) Dhanbad</p>
+                <a href="mailto:sudhakar@iitism.ac.in">sudhakar@iitism.ac.in</a>
+              </article>
+            </div>
+          </div>
         </article>
 
         <article class="content-card compact accent-gold funding-card">
