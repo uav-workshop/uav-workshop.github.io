@@ -93,21 +93,72 @@
       word-break: break-word;
     }
 
-    /* Nine-speaker layout: balanced 3 x 3 grid on desktop. */
-    .speaker-grid {
+    /* Speaker section: professional photo cards.
+       10 speakers = 5 x 2 on large screens, then responsive below. */
+    #speakers .speaker-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
     }
 
-    .speaker-card {
+    #speakers .speaker-card {
       min-width: 0;
       height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      padding: 24px 16px 22px;
+    }
+
+    .speaker-photo-wrap {
+      width: 136px;
+      height: 136px;
+      margin: 0 auto 17px;
+      flex: 0 0 auto;
+      position: relative;
+    }
+
+    .speaker-photo {
+      display: block;
+      width: 136px;
+      height: 136px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid #e6f3f9;
+      background: #f3f9fc;
+      box-shadow: 0 8px 22px rgba(23, 50, 77, 0.13);
+    }
+
+    .speaker-fallback {
+      display: none;
+      width: 136px;
+      height: 136px;
+      border-radius: 50%;
+      place-items: center;
+      background: linear-gradient(135deg, #e8f7fb, #dbeef8);
+      color: #0c91c5;
+      border: 4px solid #e6f3f9;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    #speakers .speaker-card h3 {
+      margin: 0 0 7px;
+      line-height: 1.28;
+    }
+
+    #speakers .speaker-card p {
+      margin: 0;
+      line-height: 1.42;
     }
 
     @media (max-width: 900px) {
-      .speaker-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      #speakers .speaker-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .funding-content {
@@ -130,12 +181,32 @@
     }
 
     @media (max-width: 640px) {
-      .speaker-grid {
-        grid-template-columns: 1fr;
+      #speakers .speaker-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .speaker-photo-wrap,
+      .speaker-photo,
+      .speaker-fallback {
+        width: 116px;
+        height: 116px;
       }
 
       .qr-code-wrap img {
         width: min(210px, 72vw);
+      }
+    }
+
+    @media (max-width: 430px) {
+      #speakers .speaker-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .speaker-photo-wrap,
+      .speaker-photo,
+      .speaker-fallback {
+        width: 128px;
+        height: 128px;
       }
     }
   </style>
@@ -259,16 +330,105 @@
           <p>Invited experts from leading IITs and TiHAN, IIT Hyderabad.</p>
         </div>
         <div class="speaker-grid">
-          <article class="speaker-card"><div class="speaker-avatar">PKD</div><h3>Prof. Pradip Kumar Das</h3><p>IIT Guwahati, India</p></article>
-          <article class="speaker-card"><div class="speaker-avatar">SC</div><h3>Prof. Sandip Chakrabarty</h3><p>IIT Kharagpur, India</p></article>
-          <article class="speaker-card"><div class="speaker-avatar">MP</div><h3>Dr. Moumita Patra</h3><p>IIT Guwahati, India</p></article>
-          <article class="speaker-card"><div class="speaker-avatar">AR</div><h3>Dr. Arijit Roy</h3><p>IIT Patna, India</p></article>
-          <article class="speaker-card"><div class="speaker-avatar">AD</div><h3>Dr. Abhijit Das</h3><p>IIT Hyderabad, India</p></article>
-          <article class="speaker-card"><div class="speaker-avatar">SN</div><h3>Dr. Syam Narayanan</h3><p>TiHAN, IIT Hyderabad, India</p></article>
-          <article class="speaker-card"><div class="speaker-avatar">PS</div><h3>Dr. Pranay Saha</h3><p>IIT (ISM) Dhanbad, India</p></article>
-          <article class="speaker-card"><div class="speaker-avatar">NT</div><h3>Dr. Nikhil Tripathi</h3><p>IIT (ISM) Dhanbad, India</p></article>
-          <article class="speaker-card"><div class="speaker-avatar">AM</div><h3>Dr. Ayan Mondal</h3><p>IIT Indore, India</p></article>
-          <article class="speaker-card"><div class="speaker-avatar">AC</div><h3>Dr. Ayon Chakraborty</h3><p>IIT Madras, India</p></article>
+          <article class="speaker-card">
+            <div class="speaker-photo-wrap">
+              <img class="speaker-photo" src="speaker/Pradip.jpeg" alt="Prof. Pradip Kumar Das" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+              <div class="speaker-fallback">PKD</div>
+            </div>
+            <h3>Prof. Pradip Kumar Das</h3>
+            <p>IIT Guwahati, India</p>
+          </article>
+
+          <article class="speaker-card">
+            <div class="speaker-photo-wrap">
+              <img class="speaker-photo" src="speaker/Sandip.png" alt="Prof. Sandip Chakrabarty" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+              <div class="speaker-fallback">SC</div>
+            </div>
+            <h3>Prof. Sandip Chakrabarty</h3>
+            <p>IIT Kharagpur, India</p>
+          </article>
+
+          <article class="speaker-card">
+            <div class="speaker-photo-wrap">
+              <img class="speaker-photo" src="speaker/Moumita.jpg" alt="Dr. Moumita Patra" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+              <div class="speaker-fallback">MP</div>
+            </div>
+            <h3>Dr. Moumita Patra</h3>
+            <p>IIT Guwahati, India</p>
+          </article>
+
+          <article class="speaker-card">
+            <div class="speaker-photo-wrap">
+              <img class="speaker-photo" src="speaker/Arijit.jpg" alt="Dr. Arijit Roy" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+              <div class="speaker-fallback">AR</div>
+            </div>
+            <h3>Dr. Arijit Roy</h3>
+            <p>IIT Patna, India</p>
+          </article>
+
+          <article class="speaker-card">
+            <div class="speaker-photo-wrap">
+              <img class="speaker-photo" src="speaker/Abhijit.png" alt="Dr. Abhijit Das" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+              <div class="speaker-fallback">AD</div>
+            </div>
+            <h3>Dr. Abhijit Das</h3>
+            <p>IIT Hyderabad, India</p>
+          </article>
+
+          <article class="speaker-card">
+            <div class="speaker-photo-wrap">
+              <img class="speaker-photo" src="speaker/Syam.jpeg" alt="Dr. Syam Narayanan" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+              <div class="speaker-fallback">SN</div>
+            </div>
+            <h3>Dr. Syam Narayanan</h3>
+            <p>TiHAN, IIT Hyderabad, India</p>
+          </article>
+
+          <article class="speaker-card">
+            <div class="speaker-photo-wrap">
+              <img class="speaker-photo" src="speaker/Pranay.jpg" alt="Dr. Pranay Saha" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+              <div class="speaker-fallback">PS</div>
+            </div>
+            <h3>Dr. Pranay Saha</h3>
+            <p>IIT (ISM) Dhanbad, India</p>
+          </article>
+
+          <article class="speaker-card">
+            <div class="speaker-photo-wrap">
+              <img class="speaker-photo" src="speaker/Nikhil.png" alt="Dr. Nikhil Tripathi" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+              <div class="speaker-fallback">NT</div>
+            </div>
+            <h3>Dr. Nikhil Tripathi</h3>
+            <p>IIT (ISM) Dhanbad, India</p>
+          </article>
+
+          <article class="speaker-card">
+            <div class="speaker-photo-wrap">
+              <img class="speaker-photo" src="speaker/Ayan.jpeg" alt="Dr. Ayan Mondal" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+              <div class="speaker-fallback">AM</div>
+            </div>
+            <h3>Dr. Ayan Mondal</h3>
+            <p>IIT Indore, India</p>
+          </article>
+
+          <article class="speaker-card">
+            <div class="speaker-photo-wrap">
+              <img class="speaker-photo" src="speaker/Ayon.jpg" alt="Dr. Ayon Chakraborty" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+              <div class="speaker-fallback">AC</div>
+            </div>
+            <h3>Dr. Ayon Chakraborty</h3>
+            <p>IIT Madras, India</p>
+          </article>
         </div>
       </div>
     </section>
