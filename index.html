@@ -381,6 +381,21 @@
         justify-self: start;
       }
     }
+
+    /* 14-speaker desktop layout: 5 + 5 + 4, with the final row centered. */
+    @media (min-width: 901px) {
+      #speakers .speaker-grid {
+        grid-template-columns: repeat(10, minmax(0, 1fr));
+      }
+
+      #speakers .speaker-card {
+        grid-column: span 2;
+      }
+
+      #speakers .speaker-card:nth-last-child(4) {
+        grid-column: 2 / span 2;
+      }
+    }
   </style>
 </head>
 <body>
@@ -499,7 +514,7 @@
         <div class="section-heading">
           <p class="eyebrow">Knowledge Exchange</p>
           <h2>Invited Speakers</h2>
-          <p>Invited experts from leading IITs and TiHAN, IIT Hyderabad.</p>
+          <p>Invited experts from leading academic and research institutions in India.</p>
         </div>
         <div class="speaker-grid">
           <article class="speaker-card">
@@ -632,7 +647,40 @@
             <p>IIT (BHU) Varanasi, India</p>
             <a class="speaker-profile-link" href="https://www.iitbhu.ac.in/dept/cse/people/indracse" target="_blank" rel="noopener noreferrer" aria-label="View profile of Dr. Indra Deep Mastan">View profile <span aria-hidden="true">↗</span></a>
           </article>
-        </div>
+        
+
+          <article class="speaker-card">
+            <div class="speaker-photo-wrap">
+              <img class="speaker-photo" src="speaker/Karan.jpg" alt="Dr. Karan Verma" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+              <div class="speaker-fallback">KV</div>
+            </div>
+            <h3>Dr. Karan Verma</h3>
+            <p>NIT Delhi, India</p>
+            <a class="speaker-profile-link"
+               href="https://faculty.nitdelhi.ac.in/KaranVerma/profile"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="View profile of Dr. Karan Verma">
+              View profile <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="speaker-card">
+            <div class="speaker-photo-wrap">
+              <img class="speaker-photo" src="speaker/Debasis.jpg" alt="Dr. Debasis Das" loading="lazy"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+              <div class="speaker-fallback">DD</div>
+            </div>
+            <h3>Dr. Debasis Das</h3>
+            <p>IIT Jodhpur, India</p>
+            <a class="speaker-profile-link"
+               href="https://iitj.ac.in/People/Profile/214803fd-cce9-456f-ae72-ef3f65eb700e?ln=en"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="View profile of Dr. Debasis Das">
+              View profile <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+</div>
       </div>
     </section>
 
