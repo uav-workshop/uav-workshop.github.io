@@ -396,6 +396,207 @@
         grid-column: 2 / span 2;
       }
     }
+
+    /* =============================
+       Workshop Schedule
+       ============================= */
+    .schedule-section {
+      background:
+        radial-gradient(circle at 8% 14%, rgba(12, 145, 197, 0.06), transparent 28%),
+        radial-gradient(circle at 92% 82%, rgba(21, 152, 166, 0.06), transparent 30%),
+        #ffffff;
+    }
+
+    .schedule-note {
+      max-width: 820px;
+      margin: 0 auto;
+      color: #5c748a;
+    }
+
+    .schedule-days {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 36px;
+      align-items: start;
+    }
+
+    .schedule-day {
+      overflow: hidden;
+      border: 1px solid #d6eaf3;
+      border-radius: 24px;
+      background: #ffffff;
+      box-shadow: 0 10px 28px rgba(23, 50, 77, 0.08);
+    }
+
+    .schedule-day-header {
+      padding: 22px 22px 18px;
+      border-bottom: 1px solid #e1eef4;
+    }
+
+    .schedule-day.day-one .schedule-day-header {
+      background: linear-gradient(135deg, #e7f6ea 0%, #f4fbf5 100%);
+    }
+
+    .schedule-day.day-two .schedule-day-header {
+      background: linear-gradient(135deg, #fff6d9 0%, #fffaf0 100%);
+    }
+
+    .schedule-day.day-three .schedule-day-header {
+      background: linear-gradient(135deg, #eeeaf8 0%, #f8f6fc 100%);
+    }
+
+    .schedule-day-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0 0 6px;
+      color: #0c91c5;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .schedule-day-header h3 {
+      margin: 0;
+      color: #17324d;
+      font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+      line-height: 1.2;
+    }
+
+    .schedule-day-header p {
+      margin: 7px 0 0;
+      color: #5c748a;
+      font-weight: 600;
+    }
+
+    .schedule-list {
+      padding: 10px 18px 18px;
+    }
+
+    .schedule-item {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr);
+      gap: 14px;
+      padding: 15px 4px;
+      border-bottom: 1px solid #edf3f6;
+    }
+
+    .schedule-item:last-child {
+      border-bottom: 0;
+    }
+
+    .schedule-time {
+      align-self: start;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: #edf8fc;
+      color: #087da7;
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.15;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .schedule-session h4 {
+      margin: 0 0 4px;
+      color: #17324d;
+      font-size: 0.98rem;
+      line-height: 1.32;
+    }
+
+    .schedule-affiliation {
+      margin: 0 0 6px;
+      color: #5c748a;
+      font-size: 0.84rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .schedule-topic {
+      margin: 0;
+      color: #334e68;
+      font-size: 0.9rem;
+      line-height: 1.48;
+    }
+
+    .schedule-topic strong {
+      color: #0c91c5;
+    }
+
+    .schedule-item.special .schedule-time {
+      background: #eaf6f1;
+      color: #168563;
+    }
+
+    .schedule-item.ceremony .schedule-time {
+      background: #fff5d9;
+      color: #9b7215;
+    }
+
+    .schedule-break {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 8px 0;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: #f5f9fb;
+      color: #60798c;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .schedule-break::before,
+    .schedule-break::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: #dfeaf0;
+    }
+
+    .schedule-tba {
+      color: #7a8e9e;
+      font-style: italic;
+    }
+
+    @media (max-width: 1050px) {
+      .schedule-days {
+        grid-template-columns: 1fr;
+      }
+
+      .schedule-day {
+        max-width: 820px;
+        width: 100%;
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .schedule-list {
+        padding-inline: 14px;
+      }
+
+      .schedule-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 14px 2px;
+      }
+
+      .schedule-time {
+        width: fit-content;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -413,6 +614,7 @@
         <a href="#about">About</a>
         <a href="#themes">Themes</a>
         <a href="#speakers">Speakers</a>
+        <a href="#schedule">Schedule</a>
         <a href="#registration">Registration</a>
         <a href="#organization">Organization</a>
         <a href="#contact">Contact</a>
@@ -651,7 +853,7 @@
 
           <article class="speaker-card">
             <div class="speaker-photo-wrap">
-              <img class="speaker-photo" src="speaker/karan.webp" alt="Dr. Karan Verma" loading="lazy"
+              <img class="speaker-photo" src="speaker/Karan.jpg" alt="Dr. Karan Verma" loading="lazy"
                    onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
               <div class="speaker-fallback">KV</div>
             </div>
@@ -667,7 +869,7 @@
 
           <article class="speaker-card">
             <div class="speaker-photo-wrap">
-              <img class="speaker-photo" src="speaker/debasis.jpg" alt="Dr. Debasis Das" loading="lazy"
+              <img class="speaker-photo" src="speaker/Debasis.jpg" alt="Dr. Debasis Das" loading="lazy"
                    onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
               <div class="speaker-fallback">DD</div>
             </div>
@@ -683,6 +885,195 @@
 </div>
       </div>
     </section>
+
+
+    <section class="section schedule-section section-pad" id="schedule">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">3–5 October 2026</p>
+          <h2>Workshop Schedule</h2>
+          <p class="schedule-note">Three days of expert talks, hands-on sessions, UAV networking, AI/ML, security, edge intelligence and aerial computing.</p>
+        </div>
+
+        <div class="schedule-days">
+          <article class="schedule-day day-one">
+            <header class="schedule-day-header">
+              <p class="schedule-day-kicker">Day 1</p>
+              <h3>Saturday, 3 October 2026</h3>
+              <p>Opening &amp; Next-Generation UAV Systems</p>
+            </header>
+            <div class="schedule-list">
+              <div class="schedule-item ceremony">
+                <div class="schedule-time">9:00–9:30</div>
+                <div class="schedule-session">
+                  <h4>Inaugural Session</h4>
+                </div>
+              </div>
+
+              <div class="schedule-item">
+                <div class="schedule-time">9:30–10:30</div>
+                <div class="schedule-session">
+                  <h4>Prof. Pradip Kumar Das</h4>
+                  <p class="schedule-affiliation">IIT Guwahati</p>
+                  <p class="schedule-topic"><strong>Topic:</strong> Drone Eco System</p>
+                </div>
+              </div>
+
+              <div class="schedule-item">
+                <div class="schedule-time">10:30–11:30</div>
+                <div class="schedule-session">
+                  <h4>Dr. Ayon Chakraborty</h4>
+                  <p class="schedule-affiliation">IIT Madras</p>
+                  <p class="schedule-topic"><strong>Topic:</strong> Scaling Aerial Network Deployments</p>
+                </div>
+              </div>
+
+              <div class="schedule-item">
+                <div class="schedule-time">11:30–12:30</div>
+                <div class="schedule-session">
+                  <h4>Dr. Ayan Mondal</h4>
+                  <p class="schedule-affiliation">IIT Indore</p>
+                  <p class="schedule-topic"><strong>Topic:</strong> Towards Democratizing Edge AI Paradigm for IoT-Enabled UAV Platform</p>
+                </div>
+              </div>
+
+              <div class="schedule-break">12:30–2:00 &nbsp; Break</div>
+
+              <div class="schedule-item">
+                <div class="schedule-time">2:00–3:00</div>
+                <div class="schedule-session">
+                  <h4>Dr. Syam Narayanan S</h4>
+                  <p class="schedule-affiliation">TiHAN, IIT Hyderabad</p>
+                  <p class="schedule-topic"><strong>Topic:</strong> Urban Air Mobility Solution and Traffic Management</p>
+                </div>
+              </div>
+
+              <div class="schedule-item">
+                <div class="schedule-time">3:00–4:00</div>
+                <div class="schedule-session">
+                  <h4>Dr. Pranay Saha</h4>
+                  <p class="schedule-affiliation">IIT (ISM) Dhanbad</p>
+                  <p class="schedule-topic"><strong>Topic:</strong> UAVs at the Edge: Optimization and AI for Aerial Computing</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="schedule-day day-two">
+            <header class="schedule-day-header">
+              <p class="schedule-day-kicker">Day 2</p>
+              <h3>Sunday, 4 October 2026</h3>
+              <p>Security, Privacy &amp; UAV Network Resilience</p>
+            </header>
+            <div class="schedule-list">
+              <div class="schedule-item special">
+                <div class="schedule-time">9:30–10:30</div>
+                <div class="schedule-session">
+                  <h4>Dr. Karan Verma</h4>
+                  <p class="schedule-affiliation">NIT Delhi</p>
+                  <p class="schedule-topic"><strong>Topic:</strong> Data Security and Privacy-Preserving Federated Learning (with Hands-on)</p>
+                </div>
+              </div>
+
+              <div class="schedule-item">
+                <div class="schedule-time">10:30–11:30</div>
+                <div class="schedule-session">
+                  <h4>Dr. Nikhil Tripathi</h4>
+                  <p class="schedule-affiliation">IIT (ISM) Dhanbad</p>
+                  <p class="schedule-topic"><strong>Topic:</strong> Red-Teaming Next-Generation UAV Networks: From Protocol Flaws to AI Exploitation</p>
+                </div>
+              </div>
+
+              <div class="schedule-item">
+                <div class="schedule-time">11:30–12:30</div>
+                <div class="schedule-session">
+                  <h4>Dr. Arijit Roy</h4>
+                  <p class="schedule-affiliation">IIT Patna</p>
+                  <p class="schedule-topic schedule-tba"><strong>Topic:</strong> —</p>
+                </div>
+              </div>
+
+              <div class="schedule-break">12:30–2:00 &nbsp; Break</div>
+
+              <div class="schedule-item">
+                <div class="schedule-time">4:00–5:00</div>
+                <div class="schedule-session">
+                  <h4>Dr. Indra Deep Mastan</h4>
+                  <p class="schedule-affiliation">IIT (BHU) Varanasi</p>
+                  <p class="schedule-topic schedule-tba"><strong>Topic:</strong> —</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="schedule-day day-three">
+            <header class="schedule-day-header">
+              <p class="schedule-day-kicker">Day 3</p>
+              <h3>Monday, 5 October 2026</h3>
+              <p>AIoT, 3D Understanding &amp; Hands-on Sessions</p>
+            </header>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <div class="schedule-time">8:30–9:30</div>
+                <div class="schedule-session">
+                  <h4>Dr. Abhijit Das</h4>
+                  <p class="schedule-affiliation">IIT Hyderabad</p>
+                  <p class="schedule-topic schedule-tba"><strong>Topic:</strong> —</p>
+                </div>
+              </div>
+
+              <div class="schedule-item special">
+                <div class="schedule-time">9:30–11:30</div>
+                <div class="schedule-session">
+                  <h4>Dr. Debasis Das</h4>
+                  <p class="schedule-affiliation">IIT Jodhpur</p>
+                  <p class="schedule-topic"><strong>Topic:</strong> AIoT-Enabled Autonomous Driving Systems</p>
+                  <p class="schedule-topic"><strong>Hands-on Session:</strong> Python-Based Implementation of AI Models for Societal Applications</p>
+                </div>
+              </div>
+
+              <div class="schedule-item">
+                <div class="schedule-time">11:30–12:30</div>
+                <div class="schedule-session">
+                  <h4>Dr. Ashish Tiwari</h4>
+                  <p class="schedule-affiliation">Dolby Laboratories</p>
+                  <p class="schedule-topic"><strong>Topic:</strong> Shadow-Guided 3D Understanding: An Art Inspired Perspective</p>
+                </div>
+              </div>
+
+              <div class="schedule-break">12:30–2:00 &nbsp; Break</div>
+
+              <div class="schedule-item special">
+                <div class="schedule-time">2:00–4:00</div>
+                <div class="schedule-session">
+                  <h4>Prof. Sandip Chakraborty</h4>
+                  <p class="schedule-affiliation">IIT Kharagpur</p>
+                  <p class="schedule-topic schedule-tba"><strong>Topic:</strong> —</p>
+                  <p class="schedule-topic schedule-tba"><strong>Hands-on Session:</strong> —</p>
+                </div>
+              </div>
+
+              <div class="schedule-item">
+                <div class="schedule-time">4:00–5:00</div>
+                <div class="schedule-session">
+                  <h4>Dr. Moumita Patra</h4>
+                  <p class="schedule-affiliation">IIT Guwahati</p>
+                  <p class="schedule-topic schedule-tba"><strong>Topic:</strong> —</p>
+                </div>
+              </div>
+
+              <div class="schedule-item ceremony">
+                <div class="schedule-time">5:00–5:30</div>
+                <div class="schedule-session">
+                  <h4>Valedictory</h4>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
 
     <section class="section section-soft section-pad" id="registration">
       <div class="container">
@@ -705,7 +1096,7 @@
             <h3>Online Registration</h3>
             <a class="registration-url" href="https://forms.gle/7DsZHXZ98Nd2jBKd8" target="_blank" rel="noopener">https://forms.gle/7DsZHXZ98Nd2jBKd8</a>
             <div class="registration-meta">
-              <div><span>Registration deadline</span><strong>25 September 2026</strong></div>
+              <div><span>Registration deadline</span><strong><s>25 September 2026</s></strong></div>
               <div><span>Selection / confirmation</span><strong>1 October 2026</strong></div>
             </div>
             <a class="btn btn-primary" href="https://forms.gle/7DsZHXZ98Nd2jBKd8" target="_blank" rel="noopener">Scan / Click to Register</a>
