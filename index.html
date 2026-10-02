@@ -597,6 +597,91 @@
       }
     }
 
+
+    .schedule-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: #0c91c5;
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(12, 145, 197, 0.18);
+      transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .schedule-download:hover,
+    .schedule-download:focus-visible {
+      background: #087da7;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(12, 145, 197, 0.22);
+    }
+
+    /* Registration is closed: visibly strike registration actions and disable interaction. */
+    .registration-closed,
+    .registration-closed * {
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: #c94b4b;
+    }
+
+    .registration-disabled {
+      pointer-events: none !important;
+      cursor: not-allowed !important;
+      opacity: 0.58;
+      text-decoration: line-through !important;
+      text-decoration-thickness: 2px !important;
+      text-decoration-color: #c94b4b !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+
+    .registration-closed-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #fff1f1;
+      color: #a93636;
+      border: 1px solid #efc5c5;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .qr-card.registration-qr-closed .qr-code-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    .qr-card.registration-qr-closed .qr-code-wrap img {
+      opacity: 0.16;
+      filter: grayscale(1) blur(1.5px);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .qr-card.registration-qr-closed .qr-code-wrap::after {
+      content: "REGISTRATION CLOSED";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 14px;
+      color: #a93636;
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+      text-align: center;
+      background: rgba(255,255,255,0.74);
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -654,7 +739,7 @@
         </div>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://forms.gle/7DsZHXZ98Nd2jBKd8" target="_blank" rel="noopener">Register for the Workshop</a>
+          <span class="btn btn-primary registration-disabled" aria-disabled="true">Register for the Workshop — Closed</span>
           <a class="btn btn-secondary" href="#about">Explore Programme</a>
         </div>
       </div>
@@ -664,7 +749,7 @@
       <div class="container quick-grid">
         <div class="quick-item"><span>📅</span><div><small>Date</small><strong>3–5 October 2026</strong></div></div>
         <div class="quick-item"><span>📍</span><div><small>Venue</small><strong>IIT (ISM) Dhanbad</strong></div></div>
-        <div class="quick-item"><span>₹</span><div><small>Registration</small><strong>Free for everyone</strong></div></div>
+        <div class="quick-item registration-closed"><span>₹</span><div><small>Registration</small><strong>Closed</strong></div></div>
         <div class="quick-item"><span>💻</span><div><small>Format</small><strong>Hybrid Workshop</strong></div></div>
       </div>
     </section>
@@ -892,6 +977,9 @@
         <div class="section-heading">
           <p class="eyebrow">3–5 October 2026</p>
           <h2>Workshop Schedule</h2>
+          <a class="schedule-download" href="schedule_UAV.pdf" download>
+            ⬇ Download Schedule (PDF)
+          </a>
           <p class="schedule-note">Three days of expert talks, hands-on sessions, UAV networking, AI/ML, security, edge intelligence and aerial computing.</p>
         </div>
 
@@ -1079,8 +1167,9 @@
       <div class="container">
         <div class="section-heading registration-heading">
           <p class="eyebrow">Participation</p>
-          <h2>Registration &amp; Application</h2>
-          <p>Registration is free for everyone. Attendance will be taken, and participants will receive a digital certificate for attending the workshop.</p>
+          <h2 class="registration-closed">Registration &amp; Application</h2>
+          <div class="registration-closed-badge">Registration Closed</div>
+          <p class="registration-closed">Registration is free for everyone. Attendance will be taken, and participants will receive a digital certificate for attending the workshop.</p>
         </div>
 
         <div class="registration-three-grid">
@@ -1088,26 +1177,26 @@
             <div class="section-label">Who Can Apply</div>
             <h3>Participants</h3>
             <p>Research scholars, UG/PG students, faculty members, scientists, industry professionals, and practitioners working in wireless communication and networking, AI/ML, embedded systems and UAV technologies.</p>
-            <div class="free-registration-badge">Registration is <strong>FREE</strong> for everyone</div>
+            <div class="free-registration-badge registration-closed">Registration is <strong>FREE</strong> for everyone</div>
           </article>
 
           <article class="registration-card apply-card">
             <div class="section-label">How to Apply</div>
             <h3>Online Registration</h3>
-            <a class="registration-url" href="https://forms.gle/7DsZHXZ98Nd2jBKd8" target="_blank" rel="noopener">https://forms.gle/7DsZHXZ98Nd2jBKd8</a>
+            <span class="registration-url registration-disabled" aria-disabled="true">https://forms.gle/7DsZHXZ98Nd2jBKd8</span>
             <div class="registration-meta">
-              <div><span>Registration deadline</span><strong><s>25 September 2026</s></strong></div>
-              <div><span>Selection / confirmation</span><strong>1 October 2026</strong></div>
+              <div class="registration-closed"><span>Registration deadline</span><strong>25 September 2026</strong></div>
+              <div class="registration-closed"><span>Selection / confirmation</span><strong>1 October 2026</strong></div>
             </div>
-            <a class="btn btn-primary" href="https://forms.gle/7DsZHXZ98Nd2jBKd8" target="_blank" rel="noopener">Scan / Click to Register</a>
+            <span class="btn btn-primary registration-disabled" aria-disabled="true">Registration Closed</span>
           </article>
 
-          <article class="qr-card">
+          <article class="qr-card registration-qr-closed">
             <div class="section-label">Registration QR Code</div>
             <div class="qr-code-wrap">
               <img src="assets/QR_code.png" alt="QR code for workshop registration" />
             </div>
-            <p>Scan the QR code to open the registration form.</p>
+            <p class="registration-closed">Scan the QR code to open the registration form.</p>
           </article>
         </div>
       </div>
@@ -1210,7 +1299,7 @@
           <h2>Join us to explore the future of intelligent UAV communications</h2>
         </div>
         <div class="contact-links">
-          <a href="https://forms.gle/7DsZHXZ98Nd2jBKd8" target="_blank" rel="noopener">↗ Registration Form</a>
+          <span class="registration-disabled" aria-disabled="true">↗ Registration Form — Closed</span>
           <a href="mailto:uavtechworkshop@gmail.com">✉ uavtechworkshop@gmail.com</a>
           <span>📍 IIT (ISM) Dhanbad</span>
           <a href="https://uav-workshop.github.io/" target="_blank" rel="noopener">⌁ uav-workshop.github.io</a>
